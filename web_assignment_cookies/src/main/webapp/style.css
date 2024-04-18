@@ -116,7 +116,8 @@ label.error {
     background: transparent;
 }
 
-#button{
+.button4{
+    text-decoration: none;
     color: black;
     font-size: 40px;
 }

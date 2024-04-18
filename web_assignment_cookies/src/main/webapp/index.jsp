@@ -12,6 +12,35 @@
     <title>Web 5.Ödev</title>
 </head>
 <body>
+<%
+    String mailValue = "";
+    String nameValue = "";
+    String surnameValue = "";
+    String phoneNumberValue = "";
+    String passwordValue = "";
+    String rememberValue = "";
+    Cookie[] cookie = request.getCookies();
+    if (cookie != null){
+        for (Cookie value : cookie) {
+            if (value.getName().equals("email")){
+                mailValue = value.getValue();
+            } else if (value.getName().equals("name")) {
+                nameValue = value.getValue();
+            } else if (value.getName().equals("surname")) {
+                surnameValue = value.getValue();
+            } else if (value.getName().equals("phone_number")) {
+                phoneNumberValue = value.getValue();
+            } else if (value.getName().equals("password")) {
+                passwordValue = value.getValue();
+            } else if (value.getName().equals("remember")) {
+                if (value.getValue().equals("on")){
+                    rememberValue = "checked";
+                }
+            }
+        }
+    }
+
+%>
 <div class="container-md h-100 w-100 d-flex align-items-center justify-content-center">
     <div class="row d-flex align-items-center">
 
@@ -23,38 +52,38 @@
             <form name="register" id="register" action="hello-servlet" method="post" autocomplete="on">
 
                 <div class="input-group">
-                    <input class="w-100" type="text" id="email" name="email" required>
+                    <input class="w-100" type="text" id="email" name="email" value="<%=mailValue%>" required>
                     <label class="input-label" for="email">E-posta</label>
                     <i class="fa-solid fa-envelope"></i>
                 </div>
 
                 <div class="input-group">
-                    <input class="w-100" type="text" id="name" name="name" required>
+                    <input class="w-100" type="text" id="name" name="name" value="<%=nameValue%>" required>
                     <label class="input-label" for="name">Name</label>
                     <i class="fa-solid fa-signature"></i>
                 </div>
 
                 <div class="input-group">
-                    <input class="w-100" type="text" id="surname" name="surname" required>
+                    <input class="w-100" type="text" id="surname" name="surname" value="<%=surnameValue%>" required>
                     <label class="input-label" for="surname">Surname</label>
                     <i class="fa-solid fa-signature"></i>
                 </div>
 
                 <div class="input-group">
-                    <input class="w-100" type="number" id="phone_number" name="phone_number" required>
+                    <input class="w-100" type="number" id="phone_number" name="phone_number" value="<%=phoneNumberValue%>" required>
                     <label class="input-label" for="phone_number">Phone Number</label>
                     <i class="fa-solid fa-phone"></i>
                     <p class="plus90">+90</p>
                 </div>
 
                 <div class="input-group">
-                    <input class="w-100" type="password" id="password" name="password" required>
+                    <input class="w-100" type="password" id="password" name="password" value="<%=passwordValue%>" required>
                     <label class="input-label" for="password">Password</label>
                     <i class="fa-solid fa-lock" id="lock1"></i>
                 </div>
 
                 <div class="input-group">
-                    <input class="w-100" type="password" id="confirm_password" name="confirm_password" required>
+                    <input class="w-100" type="password" id="confirm_password" name="confirm_password" value="<%=passwordValue%>" required>
                     <label class="input-label" for="confirm_password">Confirm Password</label>
                     <i class="fa-solid fa-lock" id="lock2"></i>
                 </div>
@@ -74,13 +103,11 @@
 
                 <div class="d-flex justify-content-between">
                     <div class="input-checkbox">
-                        <input type="checkbox" id="remember" name="remember">
+                        <input type="checkbox" id="remember" name="remember" <%=rememberValue%>>
                         <label for="remember">Remember Me</label>
                     </div>
-                    <a class="button" id="button" href="remembered-page">GO</a>
-                    <a class="button" href="delete-cookie">Empty Cookies</a>
+                    <a class="button4" href="delete-cookie">Forget Me</a>
                 </div>
-
 
             </form>
         </div>

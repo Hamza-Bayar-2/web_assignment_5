@@ -23,6 +23,14 @@ public class HelloServlet extends HttpServlet {
 
         if (remember != null) {
             addingCookie(response, email, name, surname, phone_number, password, remember);
+        } else {
+            Cookie[] cookies = request.getCookies();
+            if (cookies != null) {
+                for (Cookie cookie : cookies) {
+                    cookie.setMaxAge(0);
+                    response.addCookie(cookie);
+                }
+            }
         }
 
         PrintWriter writer = response.getWriter();
