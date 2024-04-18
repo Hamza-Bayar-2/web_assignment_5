@@ -23,7 +23,7 @@ public class DeleteCookie extends HttpServlet {
 
         String htmlRespone = "<html>";
         htmlRespone += "<h2>you are successfully logged out!<br/>";
-        htmlRespone += "<a href=\"index.jsp\">go back</a></h2>";
+        htmlRespone += "<a href=\"index.jsp\">Go Back</a></h2>";
         htmlRespone += "</html>";
 
         writer.print(htmlRespone);

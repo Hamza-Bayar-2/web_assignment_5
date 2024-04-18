@@ -41,6 +41,7 @@ public class HelloServlet extends HttpServlet {
         htmlRespone += "Your Phone Number: " + phone_number + "<br/>";
         htmlRespone += "Your password is: " + password + "<br/>";
         htmlRespone += "remember value: " + remember + "</h2>";
+        htmlRespone += "<h2><a href=\"index.jsp\">Go Back</a></h2>";
         htmlRespone += "</html>";
 
         writer.println(htmlRespone);
