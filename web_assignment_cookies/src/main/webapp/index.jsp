@@ -20,7 +20,7 @@
         </div>
 
         <div class="col-sm-6">
-            <form name="register" id="register" action="hello-servlet" autocomplete="on">
+            <form name="register" id="register" action="hello-servlet" method="post" autocomplete="on">
 
                 <div class="input-group">
                     <input class="w-100" type="text" id="email" name="email" required>
@@ -71,6 +71,16 @@
                     </div>
 
                 </div>
+
+                <div class="d-flex justify-content-between">
+                    <div class="input-checkbox">
+                        <input type="checkbox" id="remember" name="remember">
+                        <label for="remember">Remember Me</label>
+                    </div>
+                    <a class="button" id="button" href="remembered-page">GO</a>
+                    <a class="button" href="delete-cookie">Empty Cookies</a>
+                </div>
+
 
             </form>
         </div>

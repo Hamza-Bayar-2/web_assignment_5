@@ -116,5 +116,9 @@ label.error {
     background: transparent;
 }
 
+#button{
+    color: black;
+    font-size: 40px;
+}
 
 
